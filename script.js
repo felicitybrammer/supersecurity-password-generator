@@ -14,38 +14,38 @@ var lenSelect = function() {
     //validate
   if (numChars === "" || numChars < 8 || numChars > 128) {
     prompt("Not a valid option. Please try again.");
-  } else {
-    return numChars;
-  }
+  } 
+  
+  return numChars;
+  
 };
 
 //function to collect char types 
-//what does it return?
 var charTypeSelect = function() {
 
   var characters = "";
   
-  //var charTypeChoices = [lowercase, uppercase, numeric, special];
-
-
-
-  //prompt "do you want lowercase?"
-  //collect choice yes or no
-  if true
+  var lower = prompt("Do you want to include lowercase alphabet characters?");
+  if (lower) {
   characters += lowercase;
+  }
 
+  var upper = prompt("Do you want to include uppercase alphabet characters?");
+  if (upper) {
+    characters += uppercase;
+  }
 
-  //prompt for more "do you want uppercase"
-  //collect choice
-
-  //prompt numeric
-  //var numeric = [0,1,2,3,4,5,6,7,8,9];
-
-  //prompt special
-  //special is any symbol found on a standard US keyboard
-  // " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  // special char to allow " in string
-
+  var num = prompt("Do you want to include numeric characters?");
+  if (num) {
+    characters += numeric;
+  }
+  
+  var spec = prompt("Do you want to include any special characters? eg. !@#$%^&*_-+=");
+  if (nuspec) {
+    characters += special;
+  }
+  
+  return characters;
   
 };
 
@@ -61,7 +61,12 @@ function generatePassword() {
   charTypeSelect();
 
   //generate password the right length with the right number of char types
-  
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return password;
+
 };
 
 
