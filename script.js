@@ -1,10 +1,8 @@
-// Assignment Code
-
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var uppercase = lowercase.toUpperCase;
 var numeric = "0123456789";
 var special = "!@#$%^&*_-+=";
-
+var characters = "";
 
 var generateBtn = document.querySelector("#generate"); //class btn
 
@@ -23,28 +21,35 @@ var lenSelect = function() {
 //function to collect char types 
 var charTypeSelect = function() {
 
-  var characters = "";
-  
   var lower = prompt("Do you want to include lowercase alphabet characters?");
-  if (lower) {
-  characters += lowercase;
+  if (lower === "yes" || lower === "YES" ) {
+    //add lowercase string to possible outcomes
+    characters += lowercase;
+  } else {
+    characters += "";
   }
 
   var upper = prompt("Do you want to include uppercase alphabet characters?");
-  if (upper) {
+  if (upper === "yes" || upper === "YES" ) {
     characters += uppercase;
+  } else {
+    characters += "";
   }
 
   var num = prompt("Do you want to include numeric characters?");
-  if (num) {
+  if (num === "yes" || num === "YES" ) {
     characters += numeric;
+  } else {
+    characters += "";
   }
   
   var spec = prompt("Do you want to include any special characters? eg. !@#$%^&*_-+=");
-  if (nuspec) {
+  if (spec === "yes" || special === "YES" ) {
     characters += special;
+  } else {
+    characters += "";
   }
-  
+
   return characters;
   
 };
@@ -58,11 +63,12 @@ function generatePassword() {
   var length = lenSelect();
 
   //call function to collect char types
-  charTypeSelect();
+  charTypeSelect(); //returns characters??
 
   //generate password the right length with the right number of char types
   var password = "";
   for (var i = 0; i < length; i++) {
+    //add a random characters
     password += characters.charAt(Math.floor(Math.random() * characters.length));
   }
   return password;
